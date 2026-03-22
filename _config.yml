@@ -7,5 +7,5 @@ header_pages:
   - contact.md
   - katalog.md
 
-url: ""
-baseurl: ""
+url: "https://dmytrosolovyov.github.io"
+baseurl: "/ambito"
