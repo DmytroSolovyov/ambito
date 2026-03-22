@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  /* Flexbox setup to push footer to the bottom */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid #eee;
+  position: relative; /* Crucial for positioning the mobile dropdown */
+  background-color: #fff;
+}
+
+.navbar nav {
+  display: flex;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.logo a {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Hide the hamburger button on desktop screens */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+}
+
+main {
+  padding: 40px;
+  /* Flex: 1 forces the main content area to grow and push the footer down */
+  flex: 1; 
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #fafafa;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.tile {
+  border: 1px solid #ddd;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+}
+
+/* -----------------------------
+   MOBILE VIEW (Smartphones) 
+------------------------------ */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  .navbar nav.nav-links {
+    display: none; /* Hide default horizontal menu */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Display directly under the navbar */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+  }
+
+  /* When JS adds the .active class, show the menu */
+  .navbar nav.nav-links.active {
+    display: flex; 
+  }
+
+  /* Style mobile links to be stacked rows */
+  .navbar nav.nav-links a {
+    margin: 0;
+    padding: 15px 30px;
+    border-top: 1px solid #f9f9f9;
+  }
+
+  main {
+    padding: 20px; /* Smaller main padding on mobile */
+  }
+}

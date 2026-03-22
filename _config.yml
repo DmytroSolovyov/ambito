@@ -1,0 +1,11 @@
+title: Ambito
+description: Keramične ploščice in rešitve za vaš prostor
+theme: minima
+
+header_pages:
+  - about.md
+  - contact.md
+  - katalog.md
+
+url: ""
+baseurl: ""

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Ambito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/custom.css' | relative_url }}">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="{{ '/' | relative_url }}">Ambito.</a>
+    </div>
+    
+    <button class="menu-toggle" aria-label="Meni">
+      &#9776;
+    </button>
+    
+    <nav class="nav-links">
+      <a href="{{ '/' | relative_url }}">Domov</a>
+      <a href="{{ '/katalog.html' | relative_url }}">Katalog</a>
+      <a href="{{ '/contact.html' | relative_url }}">Kontakt</a>
+      <a href="https://pinterest.com/placeholder" target="_blank">Projekti</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="simple">
+    <p>&copy; {{ site.time | date: "%Y" }} Ambito. Vse pravice pridržane.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
