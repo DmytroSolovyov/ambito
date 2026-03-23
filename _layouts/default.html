@@ -2,49 +2,65 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>{{ page.title }} | Ambito</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 </head>
 <body>
 
   <header class="navbar">
     <div class="logo">
-      <a href="{{ '/' | relative_url }}">Ambito.</a>
+      <a href="{{ '/' | relative_url }}">Ambito<span>.</span></a>
     </div>
     
-    <button class="menu-toggle" aria-label="Meni">
-      &#9776;
+    <button class="menu-toggle" id="menu-btn" aria-label="Meni">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </button>
-    
-    <nav class="nav-links">
+  </header>
+
+  <!-- This is the sliding drawer -->
+  <nav class="nav-links" id="nav-menu">
+    <div class="nav-header">
+       <button class="close-btn" id="close-btn">&times;</button>
+    </div>
+    <div class="nav-stack">
       <a href="{{ '/' | relative_url }}">Domov</a>
       <a href="{{ '/katalog.html' | relative_url }}">Katalog</a>
       <a href="{{ '/contact.html' | relative_url }}">Kontakt</a>
       <a href="https://pinterest.com/placeholder" target="_blank">Projekti</a>
-    </nav>
-  </header>
+    </div>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
 
   <main>
     {{ content }}
   </main>
 
-  <footer class="simple">
+  <footer class="simple-footer">
     <p>&copy; {{ site.time | date: "%Y" }} Ambito. Vse pravice pridržane.</p>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleBtn = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('overlay');
 
-      toggleBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-    });
+    function toggleMenu() {
+      navMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
   </script>
 
 </body>

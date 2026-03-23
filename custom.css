@@ -319,18 +319,19 @@ footer.simple {
         display: block;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        border-bottom: 1px solid #eee;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        padding: 10px 0;
-    }
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;              /* hidden off screen */
+    height: 100%;
+    width: 260px;
+    background: var(--white);
+    flex-direction: column;
+    padding: 80px 20px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    display: flex;             /* IMPORTANT */
+}
 
     .nav-links.active {
         display: flex;
@@ -341,6 +342,10 @@ footer.simple {
         padding: 15px 8%;
         border-top: 1px solid #eee;
         width: 100%;
+    }
+
+.navbar {
+        padding: 15px 5%;
     }
 
     .navbar {
@@ -376,6 +381,10 @@ footer.simple {
     .navbar {
         padding: 15px 5%;
     }
+
+    .nav-menu.active {
+    right: 0;   /* slides in */
+  }
 
     .hero {
         height: 60vh;

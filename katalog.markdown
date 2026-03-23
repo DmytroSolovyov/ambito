@@ -3,13 +3,16 @@ layout: default
 title: Katalog
 ---
 
-# Katalog izdelkov
+<section>
+  <h1>Katalog izdelkov</h1>
+  <p class="katalog-desc">Prebrskajte našo najnovejšo ponudbo keramike.</p>
 
-Prebrskajte našo najnovejšo ponudbo keramike.
-
-<div class="grid">
-  <div class="tile">Ploščica</div>
-  <div class="tile">Ploščica</div>
-  <div class="tile">Ploščica</div>
-  <div class="tile">Ploščica</div>
-</div>
+  <div class="tile-container">
+    <a href="#" class="tile">Ploščica</a>
+    <a href="#" class="tile">Ploščica</a>
+    <a href="#" class="tile">Ploščica</a>
+    <a href="#" class="tile">Ploščica</a>
+    <a href="#" class="tile">Ploščica</a>
+    <a href="#" class="tile">Ploščica</a>
+  </div>
+</section>
